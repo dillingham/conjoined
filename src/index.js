@@ -94,7 +94,7 @@ export function Error({ value, className = 'text-red-500 text-sm', ...props }) {
     return <span />
 }
 
-export function useData()
+export function usePage()
 {
     const router = useRouter()
     const [loading, setLoading] = useState(true)
