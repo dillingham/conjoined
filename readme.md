@@ -2,6 +2,10 @@
 
 React / NextJS Helper for Laravel Developers
 
+```
+npm i conjoined
+```
+
 ## Pages
 
 Call `usePage` from `/pages/users/[user].js` and a request to `/users/1` on your backend API will take place on mount and any data returned becomes asychronous props for your component. 

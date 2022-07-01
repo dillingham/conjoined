@@ -1,4 +1,4 @@
-import axios from "./axios"
+import axios from "./axios";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
@@ -88,7 +88,7 @@ export function Error({ value, className = 'text-red-500 text-sm', ...props }) {
     if(value && typeof value !== 'string') {
         return <p className={className} {...props}>{ value[0] }</p>
     } else if(value) {
-        return <p className={className} {...props}>{ value }</p>        
+        return <p className={className} {...props}>{ value }</p>
     }
 
     return <span />
