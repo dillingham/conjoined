@@ -1,6 +1,6 @@
 {
   "name": "conjoined",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "join nextjs with laravel api",
   "main": "src/index.js",
   "scripts": {
