@@ -1,0 +1,24 @@
+{
+  "name": "conjoined",
+  "version": "0.1.0",
+  "description": "join nextjs with laravel api",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dillingham/conjoined.git"
+  },
+  "keywords": [
+    "react",
+    "laravel",
+    "nextjs"
+  ],
+  "author": "dillingham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dillingham/conjoined/issues"
+  },
+  "homepage": "https://github.com/dillingham/conjoined#readme"
+}
