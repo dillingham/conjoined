@@ -6,7 +6,25 @@ React / NextJS Helper for Laravel Developers
 npm i conjoined
 ```
 
+> This package assumes you already have a backend API setup with Laravel and a frontend app built with Next JS. If not, checkout the official [Laravel Breeze + Next.js](https://github.com/laravel/breeze-next) repo to get started.. makes getting started a breeze..
+
 ## Pages
+
+Using this Laravel api endpoint & response for example:
+
+```php
+Route::get('users/{user}', [UserController::class, 'show']);
+```
+```php
+public function show(User $user)
+{
+    return [
+        'user' => $user,
+    ];
+}
+```
+
+#### Client Side Rendering
 
 Call `usePage` from `/pages/users/[user].js` and a request to `/users/1` on your backend API will take place on mount and any data returned becomes asychronous props for your component. 
 
@@ -27,19 +45,11 @@ export default User = () => {
     )
 }
 ```
-```php
-Route::get('users/{user}', [UserController::class, 'show']);
-```
-```php
-public function show(User $user)
-{
-    return [
-        'user' => $user,
-    ];
-}
-```
 
-Using the same example but [server side rendered](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props):
+#### Server Side Rendering
+
+The api is requested when the [server renders](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) the page and passes the response data as props. So /users/[user].js requests /users/1 automatically for you.
+
 
 ```jsx
 export { getServerSideProps } from "conjoined"
@@ -52,11 +62,11 @@ export default User = ({ user }) => {
 }
 ```
 
-This package follows a convention and maps the current route to the API.
-
-So this example will automatically populate the right props based on the Laravel response.
-
 ## Forms
+
+The following form hook makes reactive forms as simple as declaring the values and binding to inputs.
+
+More docs coming soon for the various form helper methods like `form.reset()`
 
 ```jsx
 import { useForm, Error } from "conjoined"
@@ -93,3 +103,12 @@ return (
         </button>
     </form>  
 )
+```
+
+## Contributing
+
+I added cypress to test end to end with Next.js within `/app`
+
+```
+npm run test
+```
