@@ -1,8 +1,8 @@
 import axios from "./axios";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import react, { useState, useEffect } from "react";
 
-export function useForm(values = {})
+export function useForm(initial = {})
 {
     let successCallbacks = []
     
@@ -10,17 +10,17 @@ export function useForm(values = {})
     
     let initialFormValues = {}
 
-    initialFormValues = values;
+    initialFormValues = initial;
 
     const router = useRouter();
 
     const nulledErrors = {}
 
-    Object.keys(values).forEach(key => {
+    Object.keys(initial).forEach(key => {
         nulledErrors[key] = null
     })
 
-    const [fields, setFields] = useState(values)
+    const [values, setValues] = useState(initial)
     const [errors, setErrors] = useState(nulledErrors)
     const [processing, setProcessing] = useState(false)
     const [response, setResponse] = useState(null)
@@ -35,7 +35,7 @@ export function useForm(values = {})
         
         setProcessing(true)
 
-        await axios.post(endpoint, fields)
+        await axios.post(endpoint, values)
             .then(res => {
                 setResponse(res)
                 successCallbacks.forEach(callback => callback(res.data))
@@ -48,7 +48,7 @@ export function useForm(values = {})
     }
 
     const reset = () => {
-        setFields(initialFormValues)
+        setValues(initialFormValues)
     }
 
     const bind = (e) => {
@@ -56,9 +56,9 @@ export function useForm(values = {})
     }
 
     const set = (key, value) => {
-        let payload = {...fields}
+        let payload = {...values}
         payload[key] = value;
-        setFields(payload)
+        setValues(payload)
     }
 
     const hasError = (key) => {
@@ -75,7 +75,7 @@ export function useForm(values = {})
 
     useEffect(() => {
         setErrors(nulledErrors)
-    }, [fields])
+    }, [values])
 
     return {
         submit,
@@ -85,7 +85,7 @@ export function useForm(values = {})
         error,
         reset,     
         hasError,   
-        fields,
+        values,
         processing,
         response,
         errors,

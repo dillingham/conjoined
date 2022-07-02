@@ -1,14 +1,16 @@
 import axios from "./axios";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import react, { useState, useEffect } from "react";
 
-export function usePage()
+export function usePage(endpoint = '')
 {
     const router = useRouter()
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState(null)
     
-    const get = async (endpoint = router.asPath) => {        
+    endpoint = endpoint ?? router.asPath
+
+    const get = async () => {            
         await axios.get(endpoint)
             .then(res => setData(res.data))
             .catch(error => console.log(error))
@@ -19,14 +21,12 @@ export function usePage()
         get,
     }
 
-    useEffect(async () => {
+    useEffect(() => {
             
-        if(!router.isReady) {
-            return;
+        if(router.isReady) {
+            api.get()
         }
-            
-        api.get()
-        
+
     }, [router.isReady, router.asPath])
 
     return {...data, loading, api};
