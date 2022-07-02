@@ -64,16 +64,9 @@ export default User = ({ user }) => {
 
 ## Forms
 
-The following form hook makes reactive forms as simple as declaring the values and binding to inputs.
+The form hook makes native forms as simple as declaring the values and binding to inputs.
 
-#### Table of contents
-
-- [form](#element-form)
-- [input](#element-form)
-- [success](#method-success)
-- [set](#method-set)
-- [reset](#method-set)
-- [errors](#component-form)
+Here is a full example with a detailed explanation below.
 
 ```jsx
 import { useForm, Error } from "conjoined"
@@ -114,40 +107,36 @@ return (
 
 #### element: form
 
-`action`: is the endpoint
+> `action`: is the endpoint
 
-`onSubmit`: binds submit button click
+> `onSubmit`: binds submit button click
 
 #### element: input
 
-`name` is the tells `form.bind` the data key
+> `name` tells `form.bind` the data key to set from useForm
 
-`onChange={form.bind}` binds the input event
+> `onChange={form.bind}` binds the input event value to that name
 
-#### component: Error
+#### component: Error 
 
-A component that makes conditionally rendering errors clean.
+> A component that makes conditionally rendering errors clean. 
 
-Comes with default tailwind `text-red-500` but override with className
+> Comes with default tailwind `text-red-500` but override with className
 
 #### method: form.success()
 
-Register callback that receives the API response data.
+> Register a callback that receives the API response data.
 
-Use this to clear the form or redirect to a new destination.
+> Use this to clear the form or redirect to a new destination.
 
 #### method: form.set(key, value)
 
-Set a specific key to a value
+> Manually set a specific key to a value
 
 #### method: form.reset()
 
-Clears all inputs to initial state
+> Clears all inputs to initial state
 
 ## Contributing
 
 I added cypress to test end to end with Next.js within `/app`
-
-```
-npm run test
-```
