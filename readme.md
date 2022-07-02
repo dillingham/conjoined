@@ -66,7 +66,12 @@ export default User = ({ user }) => {
 
 The following form hook makes reactive forms as simple as declaring the values and binding to inputs.
 
-More docs coming soon for the various form helper methods like `form.reset()`
+#### Table of contents
+
+- [form](#form)
+- [input](#input)
+- [success](#formsuccess)
+- [errors](#error)
 
 ```jsx
 import { useForm, Error } from "conjoined"
@@ -104,6 +109,28 @@ return (
     </form>  
 )
 ```
+
+#### <form>
+
+- `action`: is the endpoint
+- `onSubmit`: binds submit button click
+
+#### <input>
+
+- `name` is the tells `form.bind` the data key
+- `onChange={form.bind}` binds the input event
+
+#### <Error>
+
+A component that makes conditionally rendering errors clean.
+
+Comes with default tailwind `text-red-500` but override with className
+
+#### form.success()
+
+Register callback that receives the API response data.
+
+Use this to clear the form or redirect to a new destination.
 
 ## Contributing
 
