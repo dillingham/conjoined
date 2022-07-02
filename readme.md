@@ -68,10 +68,12 @@ The following form hook makes reactive forms as simple as declaring the values a
 
 #### Table of contents
 
-- [form](#form)
-- [input](#input)
-- [success](#formsuccess)
-- [errors](#error)
+- [form](#element-form)
+- [input](#element-form)
+- [success](#method-success)
+- [set](#method-set)
+- [reset](#method-set)
+- [errors](#component-form)
 
 ```jsx
 import { useForm, Error } from "conjoined"
@@ -110,27 +112,37 @@ return (
 )
 ```
 
-#### <form>
+#### element: form
 
-- `action`: is the endpoint
-- `onSubmit`: binds submit button click
+`action`: is the endpoint
 
-#### <input>
+`onSubmit`: binds submit button click
 
-- `name` is the tells `form.bind` the data key
-- `onChange={form.bind}` binds the input event
+#### element: input
 
-#### <Error>
+`name` is the tells `form.bind` the data key
+
+`onChange={form.bind}` binds the input event
+
+#### component: Error
 
 A component that makes conditionally rendering errors clean.
 
 Comes with default tailwind `text-red-500` but override with className
 
-#### form.success()
+#### method: form.success()
 
 Register callback that receives the API response data.
 
 Use this to clear the form or redirect to a new destination.
+
+#### method: form.set(key, value)
+
+Set a specific key to a value
+
+#### method: form.reset()
+
+Clears all inputs to initial state
 
 ## Contributing
 
