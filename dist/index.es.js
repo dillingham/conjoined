@@ -8,13 +8,12 @@ const axios = Axios.create({
   },
   withCredentials: true
 });
-function usePage(endpoint = "") {
+function usePage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
-  endpoint = endpoint != null ? endpoint : router.asPath;
   const get = async () => {
-    await axios.get(endpoint).then((res) => setData(res.data)).catch((error) => console.log(error)).finally(() => setLoading(false));
+    await axios.get(router.asPath).then((res) => setData(res.data)).catch((error) => console.log(error)).finally(() => setLoading(false));
   };
   const api = {
     get

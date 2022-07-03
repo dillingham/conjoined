@@ -11,7 +11,6 @@ const NewUser = () => {
     })
 
     form.success((data) => {
-        alert()
         setResult({name: data.name})
     })
 

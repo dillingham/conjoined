@@ -2,16 +2,14 @@ import axios from "./axios";
 import { useRouter } from "next/router";
 import react, { useState, useEffect } from "react";
 
-export function usePage(endpoint = '')
+export function usePage()
 {
     const router = useRouter()
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState(null)
-    
-    endpoint = endpoint ?? router.asPath
 
-    const get = async () => {            
-        await axios.get(endpoint)
+    const get = async () => {         
+        await axios.get(router.asPath)
             .then(res => setData(res.data))
             .catch(error => console.log(error))
             .finally(() => setLoading(false))
