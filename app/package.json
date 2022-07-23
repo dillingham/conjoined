@@ -17,6 +17,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "cypress-file-upload": "^5.0.8",
     "eslint": "8.18.0",
     "eslint-config-next": "12.2.0"
   }

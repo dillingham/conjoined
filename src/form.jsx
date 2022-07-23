@@ -35,7 +35,20 @@ export function useForm(initial = {})
         
         setProcessing(true)
 
-        await axios.post(endpoint, values)
+        let formData = new FormData();
+
+        // node env form data issue
+        // https://github.com/axios/axios/issues/789
+
+        Object.keys(values).forEach(key => {        
+            e.target.elements[key].type === 'file'
+                ? formData.set(key, e.target.elements[key].files[0])
+                : formData.set(key, values[key])
+        })
+
+        console.log(e)
+
+        await axios.post(endpoint, formData)
             .then(res => {
                 setResponse(res)
                 successCallbacks.forEach(callback => callback(res.data))

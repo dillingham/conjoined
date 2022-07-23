@@ -546,7 +546,7 @@
 
 "conjoined@file:..":
   "resolved" "file:.."
-  "version" "0.3.0"
+  "version" "0.4.2"
 
 "core-js-pure@^3.20.2":
   "integrity" "sha512-XpoouuqIj4P+GWtdyV8ZO3/u4KftkeDVMfvp+308eGMhCrA3lVDSmAxO0c6GGOcmgVlaKDrgWVMo49h2ab/TDA=="
@@ -567,7 +567,12 @@
     "shebang-command" "^2.0.0"
     "which" "^2.0.1"
 
-"cypress@^10.3.0":
+"cypress-file-upload@^5.0.8":
+  "integrity" "sha512-+8VzNabRk3zG6x8f8BWArF/xA/W0VK4IZNx3MV0jFWrJS/qKn8eHfa5nU73P9fOQAgwHFJx7zjg4lwOnljMO8g=="
+  "resolved" "https://registry.npmjs.org/cypress-file-upload/-/cypress-file-upload-5.0.8.tgz"
+  "version" "5.0.8"
+
+"cypress@^10.3.0", "cypress@>3.0.0":
   "integrity" "sha512-txkQWKzvBVnWdCuKs5Xc08gjpO89W2Dom2wpZgT9zWZT5jXxqPIxqP/NC1YArtkpmp3fN5HW8aDjYBizHLUFvg=="
   "resolved" "https://registry.npmjs.org/cypress/-/cypress-10.3.0.tgz"
   "version" "10.3.0"
